@@ -24,14 +24,15 @@ public class BallW3 : MonoBehaviour
         //      of _speedMultiplier. TUNE that value in the Inspector and see
         //      what happens!
 
-        _rigidbody.velocity *= _speedMultiplier;
+        _rigidbody.linearVelocity *= _speedMultiplier;
 
         // STEP 1 -------------------------------------------------------------
 
         // STEP 9 -------------------------------------------------------------
         // After you write the GetColorMultiplier method, simply uncomment
         //      the below line.
-        ballRenderer.color *= GetColorMultiplier(Mathf.Abs(_rigidbody.velocity.x), Mathf.Abs(_rigidbody.velocity.y));
+        ballRenderer.color *= GetColorMultiplier(Mathf.Abs(_rigidbody.linearVelocity.x), Mathf.Abs(_rigidbody.linearVelocity.y));
+        Debug.Log(ballRenderer.color);
         // STEP 9 -------------------------------------------------------------
     }
 

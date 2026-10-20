@@ -32,9 +32,9 @@ public class CatW3 : MonoBehaviour
     private void Update()
     {
         // Detect input to move player left/right
-        _rigidbody.velocity = new Vector2(
+        _rigidbody.linearVelocity = new Vector2(
             Input.GetAxis("Horizontal") * _speed,
-            _rigidbody.velocity.y
+            _rigidbody.linearVelocity.y
         );
 
         // Detect input to jump
@@ -42,8 +42,8 @@ public class CatW3 : MonoBehaviour
         {
             _isGrounded = false;
 
-            _rigidbody.velocity = new Vector2(
-                _rigidbody.velocity.x,
+            _rigidbody.linearVelocity = new Vector2(
+                _rigidbody.linearVelocity.x,
                 _jump
             );
         }
@@ -61,7 +61,7 @@ public class CatW3 : MonoBehaviour
         }
 
         // Set animation state parameters
-        _animator.SetBool("walking", _rigidbody.velocity.x != 0.0f);
+        _animator.SetBool("walking", _rigidbody.linearVelocity.x != 0.0f);
     }
 
     // ------------------------------------------------------------------------
@@ -86,8 +86,9 @@ public class CatW3 : MonoBehaviour
             _isGrounded = true;
         }
 
+        Debug.Log(collision.gameObject.tag);
         BallW3 ball = collision.gameObject.GetComponent<BallW3>();
-        if (ball != null)
+        if (collision.gameObject.tag.Equals("toy"))
         {
             ChangeColor(ball);
 
