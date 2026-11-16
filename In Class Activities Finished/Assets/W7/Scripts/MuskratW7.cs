@@ -70,7 +70,7 @@ public class MuskratW7 : MonoBehaviour
         float movement = Input.GetAxis("Vertical");
 
         // incorrect movement code
-        // transform.position += movement * Vector3.forward * _moveSpeed * Time.deltaTime;
+        //transform.position += movement * Vector3.forward * _moveSpeed * Time.deltaTime;
 
         // correct movement code
         transform.Translate(movement * Vector3.forward * _moveSpeed * Time.deltaTime);
